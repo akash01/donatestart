@@ -23,8 +23,8 @@ angular.module('donations').controller('DonationsController', ['$scope', '$state
     };
 
     $scope.find = function() {
-      //$scope.donations = Donations.query();
-        $scope.donations = 'this is test one.';
+        $scope.donations = Donations.query();
+        //$scope.donations = 'this is test one.';
     };
 
 }
