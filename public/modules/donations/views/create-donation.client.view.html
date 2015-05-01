@@ -1,0 +1,37 @@
+<section data-ng-controller="DonationsController">
+  <div class="page-header">
+    <h1>New Donation Record</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="donationForm" class="form-horizontal" data-ng-submit="create()" novalidate>
+      <fieldset>
+        <div class="form-group" ng-class="{ 'has-error': donationForm.fullName.$dirty && donationForm.fullName.$invalid }">
+          <div class="controls">
+            <input name="fullName" type="text" data-ng-model="fullName" id="fullName" class="form-control" placeholder="John Mayer" required>
+          </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': donationForm.email.$dirty && donationForm.email.$invalid }">
+          <div class="controls">
+            <input name="email" type="email" data-ng-model="email" id="email" class="form-control" placeholder="you@gmail.com" required>
+          </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': donationForm.organisation.$dirty && donationForm.organisation.$invalid }">
+          <div class="controls">
+            <input name="organisation" type="text" data-ng-model="organisation" id="organisation" class="form-control" placeholder="Red Cross" required>
+          </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': donationForm.amount.$dirty && donationForm.amount.$invalid }">
+          <div class="controls">
+            <input name="amount" type="text" data-ng-model="amount" id="amount" class="form-control" placeholder="10" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-success pull-right">
+        </div>
+        <div data-ng-show="error" class="text-danger">
+          <strong data-ng-bind="error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

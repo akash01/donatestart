@@ -32,6 +32,15 @@
 				<a href="/#!/signin">Sign In</a>
 			</li>
 		</ul>
+		<ul class="nav navbar-nav navbar-right" >
+			<li ui-route="/donations" ng-class="{active: $uiRoute}">
+				<a href="/#!/donations">Donations</a>
+			</li>
+			<li class="divider-vertical"></li>
+			<li ui-route="/donation/create" ng-class="{active: $uiRoute}">
+				<a href="/#!/donation/create">Add Donations</a>
+			</li>
+		</ul>
 		<ul class="nav navbar-nav navbar-right" data-ng-show="authentication.user">
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
