@@ -51,6 +51,15 @@ Windows users can follow instructions found [here](http://www.websense.com/suppo
 To generate the key and certificate and place them in the *config/sslcert* folder.
 
 
+## Heroku Deploy
+```
+NODE_ENV=production grunt
+heroku addons:add mongolab
+heroku push -u heroku master
+heroku config:set NODE_ENV=production
+```
+
+
 ## License
 (The MIT License)
 
