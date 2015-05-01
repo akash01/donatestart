@@ -8,10 +8,10 @@ angular.module('donations').config(['$stateProvider',
     state('listDonations', {
         url: '/donations',
         templateUrl: 'modules/donations/views/list-donations.client.view.html'
-    }).
-    state('createDonation', {
-        url: '/donation/create',
-        templateUrl: 'modules/donations/views/create-donation.client.view.html'
     });
+    // state('createDonation', {
+    //     url: '/donation/create',
+    //     templateUrl: 'modules/donations/views/create-donation.client.view.html'
+    // });
 }
 ]);
