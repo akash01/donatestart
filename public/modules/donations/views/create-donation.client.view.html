@@ -1,8 +1,8 @@
 <section data-ng-controller="DonationsController">
   <div class="page-header">
-    <h1>Donation Record</h1>
+    <img src="/modules/core/img/brand/logo.png">
   </div>
-  <div class="col-md-12">
+  <div class="col-md-12 centered">
     <form name="donationForm" class="form-horizontal" data-ng-submit="create()" novalidate>
       <fieldset>
         <div class="form-group" ng-class="{ 'has-error': donationForm.fullName.$dirty && donationForm.fullName.$invalid }">
@@ -33,5 +33,27 @@
         </div>
       </fieldset>
     </form>
+
+
+<div id="demo"><a class="ui facebook button"><i class="icon-facebook-sign"></i>Sign up with Facebook</a><a class="ui twitter button"><i class="icon-twitter"></i>Sign up with Twitter</a>
+  <div class="ui divider">
+    <div class="ui or">or</div>
+  </div>
+  <div class="ui inputs">
+    <div class="ui icon input">
+      <input type="text" value="" placeholder="Full Name" class="form-control"/><i class="icon-user"></i>
+    </div>
+    <div class="ui icon input">
+      <input type="text" value="" placeholder="Email" class="form-control"/><i class="icon-envelope"></i>
+    </div>
+    <div class="ui icon input">
+      <input type="text" value="" placeholder="Donate to" class="form-control"/><i class="icon-lock"></i>
+    </div>
+    <div class="ui icon input">
+      <input type="text" value="" placeholder="Amount" class="form-control"/><i class="icon-lock"></i>
+    </div>
+  </div>
+  <div class="bus"><a href="#fakelink" class="ui button">Sign up</a></div>
+</div>
   </div>
 </section>
