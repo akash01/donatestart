@@ -71,12 +71,24 @@ exports.list = function(req, res) {
  * List of Donations
  */
 exports.sumDonation = function(req, res) {
-    console.log('type',res);
-    // Donation.aggregate({
+    Donation.aggregate([
+        { $group: {
+            _id: '$currency',
+            balance: { $sum: '$amount'  }
+        }}
+    ], function (err, result) {
+        if (err) {
+            return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+        }
+        res.json(result);
+    });
+    // Donation.aggregate([{
     //     $group: {
     //         _id: '$currency',
     //         total: {$sum:1}
-    //     },
+    //     }],
     //     function(err,res) {
     //         if (err) {
     //             return res.status(400).send({

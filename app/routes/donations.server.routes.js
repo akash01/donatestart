@@ -8,9 +8,7 @@ var donations = require('../../app/controllers/donations.server.controller');
 module.exports = function(app) {
   // Donation Routes
     app.route('/donations')
-      .get(donations.list)
+      .get(donations.sumDonation)
       .post(donations.create);
-    app.route('/')
-      .get(donations.sumDonation);
 
 };
