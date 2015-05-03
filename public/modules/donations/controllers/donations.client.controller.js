@@ -8,8 +8,15 @@ angular.module('donations').controller('DonationsController', ['$scope', '$state
     console.log('$scope.authentication.user');
 
     Donations.query(function(data){
-        $scope.curSym = data[0]._id;
-        $scope.balance = data[0].balance;
+        console.log('data',data);
+        if (data[0]) {
+            $scope.curSym = data[0]._id;
+            $scope.balance = data[0].balance;
+        } else {
+            $scope.curSym = 'USD';
+            $scope.balance = 0;
+        }
+
     });
 
     if ($scope.authentication.user && $scope.authentication.user.provider === 'facebook') {
