@@ -27,13 +27,13 @@ module.exports = {
 				'public/lib/angular-ui-router/release/angular-ui-router.js',
 				'public/lib/angular-ui-utils/ui-utils.js',
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
-				'public/lib/jsonrates/jsonrates.min.js'
 			]
 		},
 		css: [
 			'public/modules/**/css/*.css'
 		],
 		js: [
+			'public/helpers/*/*.js',
 			'public/config.js',
 			'public/application.js',
 			'public/modules/*/*.js',
