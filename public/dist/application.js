@@ -404,10 +404,8 @@ angular.module('donations').controller('DonationsController', ['$scope', '$state
     $scope.authentication = Authentication;
 
     $window.JR.apikey('jr-b5e6b58e33efd19cd84728b19d837c62');
-    console.log('$scope.authentication.user');
 
     Donations.query(function(data){
-        console.log('data',data);
         if (data[0]) {
             $scope.curSym = data[0]._id;
             $scope.balance = data[0].balance;
@@ -448,7 +446,7 @@ angular.module('donations').controller('DonationsController', ['$scope', '$state
 
     $scope.createRecord = function(donation) {
         donation.$save(function(response) {
-            //$location.path('donations');
+            $window.location.reload();
             $scope.fullName = '';
             $scope.email = '';
             $scope.organisation = '';
