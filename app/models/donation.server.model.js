@@ -33,11 +33,17 @@ var DonationSchema = new Schema({
 		required: 'Organisation cannot be blank'
 	},
 	amount: {
-		type: String,
+		type: Number,
 		default: '',
 		trim: true,
 		required: 'Donation amount cannot be blank'
-	}
+	},
+	currency: {
+		type: String,
+		default: '',
+		trim: true,
+		required: 'Currency cannot be blank'
+	},
 });
 
 mongoose.model('Donation', DonationSchema);

@@ -14,7 +14,7 @@ var mongoose = require('mongoose'),
 exports.create = function(req, res) {
     var donation = new Donation(req.body);
     //donation.user = req.user;
-
+    console.log('donation',donation);
     donation.save(function(err) {
         if (err) {
             return res.status(400).send({
@@ -65,6 +65,42 @@ exports.list = function(req, res) {
             res.json(donations);
         }
     });
+};
+
+/**
+ * List of Donations
+ */
+exports.sumDonation = function(req, res) {
+    Donation.aggregate([
+        { $group: {
+            _id: '$currency',
+            balance: { $sum: '$amount'  }
+        }}
+    ], function (err, result) {
+        if (err) {
+            return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+        }
+        res.json(result);
+    });
+    // Donation.aggregate([{
+    //     $group: {
+    //         _id: '$currency',
+    //         total: {$sum:1}
+    //     }],
+    //     function(err,res) {
+    //         if (err) {
+    //             return res.status(400).send({
+    //                 message: errorHandler.getErrorMessage(err)
+    //             });
+    //         } else {
+    //             console.log('type',res);
+    //             console.log('type',typeof res);
+    //             res.json(res);
+    //         }
+    //     }
+    // });
 };
 
 /**
