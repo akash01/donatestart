@@ -6,13 +6,13 @@ module.exports = {
 		title: 'DonationStart - Development Environment'
 	},
 	facebook: {
-		clientID: process.env.FACEBOOK_ID || 'APP_ID',
-		clientSecret: process.env.FACEBOOK_SECRET || 'APP_SECRET',
+		clientID: process.env.FACEBOOK_ID || '485128424848257',
+		clientSecret: process.env.FACEBOOK_SECRET || 'a094ee0ab6977611159dce14d2cfcd3f',
 		callbackURL: '/auth/facebook/callback'
 	},
 	twitter: {
-		clientID: process.env.TWITTER_KEY || 'CONSUMER_KEY',
-		clientSecret: process.env.TWITTER_SECRET || 'CONSUMER_SECRET',
+		clientID: process.env.TWITTER_KEY || 'PrmULMUKPyLaJIdQMoj2l771S',
+		clientSecret: process.env.TWITTER_SECRET || 'FwJPRTYyUOYyLzfHsm3yBHcyTrCiI9QvCxuQMKyklNyxafungy',
 		callbackURL: '/auth/twitter/callback'
 	},
 	google: {

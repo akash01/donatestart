@@ -10,4 +10,7 @@ module.exports = function(app) {
     app.route('/donations')
       .get(donations.list)
       .post(donations.create);
+    app.route('/')
+      .get(donations.sumDonation);
+
 };

@@ -274,6 +274,9 @@ input[type=password]:focus {
   margin: 40px auto;
   width: 280px;
 }
+.sub-btn {
+  width: 16.5em;
+}
 .input,
 .button {
   margin-bottom: 16px;

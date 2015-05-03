@@ -24,13 +24,13 @@ module.exports = {
 		js: 'public/dist/application.min.js'
 	},
 	facebook: {
-		clientID: process.env.FACEBOOK_ID || 'APP_ID',
-		clientSecret: process.env.FACEBOOK_SECRET || 'APP_SECRET',
+		clientID: process.env.FACEBOOK_ID || '928622827190044',
+		clientSecret: process.env.FACEBOOK_SECRET || 'ff6cbc9f56faa97e9ad0683c4dd5ec8b',
 		callbackURL: '/auth/facebook/callback'
 	},
 	twitter: {
-		clientID: process.env.TWITTER_KEY || 'CONSUMER_KEY',
-		clientSecret: process.env.TWITTER_SECRET || 'CONSUMER_SECRET',
+		clientID: process.env.TWITTER_KEY || 'PrmULMUKPyLaJIdQMoj2l771S',
+		clientSecret: process.env.TWITTER_SECRET || 'FwJPRTYyUOYyLzfHsm3yBHcyTrCiI9QvCxuQMKyklNyxafungy',
 		callbackURL: '/auth/twitter/callback'
 	},
 	google: {
