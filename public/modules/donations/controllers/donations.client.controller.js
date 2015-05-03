@@ -1,10 +1,23 @@
 'use strict';
 
-angular.module('donations').controller('DonationsController', ['$scope', '$stateParams', '$location','Donations','Authentication',
-  function($scope, $stateParams, $location,Donations,Authentication) {
+angular.module('donations').controller('DonationsController', ['$scope', '$stateParams', '$location','Donations','Authentication','$window',
+  function($scope, $stateParams, $location,Donations,Authentication,$window) {
     $scope.authentication = Authentication;
 
-    console.log('$scope.authentication.user',$scope.authentication.user);
+    $window.JR.apikey('jr-b5e6b58e33efd19cd84728b19d837c62');
+    console.log('$scope.authentication.user');
+
+    Donations.query(function(data){
+        console.log('data',data);
+        if (data[0]) {
+            $scope.curSym = data[0]._id;
+            $scope.balance = data[0].balance;
+        } else {
+            $scope.curSym = 'USD';
+            $scope.balance = 0;
+        }
+
+    });
 
     if ($scope.authentication.user && $scope.authentication.user.provider === 'facebook') {
         $scope.fullName = $scope.authentication.user.displayName;
@@ -22,12 +35,24 @@ angular.module('donations').controller('DonationsController', ['$scope', '$state
             amount: this.amount,
             currency: this.selectedCurrency.code
         });
-        console.log('donation',donation);
+
+        if (donation.currency !== 'USD') {
+            $window.JR.from(donation.currency).to('USD').amount(donation.amount).convert(function(result) {
+                donation.currency = result.to;
+                donation.amount = result.amount;
+                $scope.createRecord(donation);
+            });
+            return;
+        }
+        $scope.createRecord(donation);
+    };
+
+    $scope.createRecord = function(donation) {
         donation.$save(function(response) {
             //$location.path('donations');
-            //$scope.fullName = '';
-            //$scope.email = '';
-            //$scope.organisation = '';
+            $scope.fullName = '';
+            $scope.email = '';
+            $scope.organisation = '';
             $scope.amount = '';
             //$scope.currency = '';
         }, function(errorResponse) {

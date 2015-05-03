@@ -1,27 +1,65 @@
 <div class="donation">
-     <div class="donation-main">
-        <div class="donation-top">
-          <img src="/modules/core/img/brand/logo.png" alt="donationstats"/>
-          <h1>Donated approx $200m</h1>
-          <h3>Submit your donation info using</h3>
-          <ul>
+  <div class="donation-main">
+      <div class="donation-top">
+        <img src="/modules/core/img/brand/logo.png" alt="donationstats"/>
+        <h1>Donated approx $200m</h1>
+        <h3>Submit your donation info using</h3>
+        <ul>
             <li><a class="fa" href="#"> </a></li>
             <li><a class="tw" href="#"> </a></li>
             <li><a class="g" href="#"> </a></li>
-          </ul>
-          <h3> or</h3>
-          <input type="text" placeholder="Raman Tamang" required="" class="fullname">
-          <input type="text" placeholder="ramanthaman@gmail.com" required="" class="email">
-          <input type="text" placeholder="Donated to (e.g: Red cross)" required="" class="donated">
-          <input type="text" placeholder="Amount (e.g: $20)" required="" class="amount">
-          <div class="donation-bottom">
-            <div class="donation-check"></div>
-          </div>
+        </ul>
+        <h3> or</h3>
+        <input type="text" placeholder="Raman Tamang" required="" class="fullname">
+        <input type="text" placeholder="ramanthaman@gmail.com" required="" class="email">
+        <input type="text" placeholder="Donated to (e.g: Red cross)" required="" class="donated">
+        <input type="text" placeholder="Amount (e.g: $20)" required="" class="amount">
+        <div class="donation-bottom">
+          <div class="donation-check"></div>
           <input type="submit" value="SUBMIT" />
         </div>
       </div>
   </div>
-  <div class="copyright">
-     <p class="footer">Work of >> <a href="http://helpoutnepal.org/"> HelpOutNepal.org </a></p>
+</div>
+<div class="copyright">
+  <p class="footer">Work of >> <a href="http://helpoutnepal.org/"> HelpOutNepal.org </a></p>
+</div>
+
+
+<section data-ng-controller="DonationsController">
+  <div class="page-header">
+    <img src="/modules/core/img/brand/logo.png">
+    <a href="/auth/signout">Signout</a>
+    <h3 class="text-center balance">Total donation : {{balance}} {{curSym}}</h3>
   </div>
+  <div class="col-md-12 centered">
+  <div id="demo">
+    <form name="donationForm" class="form-horizontal" data-ng-submit="create()" novalidate>
+      <a class="ui facebook button undecorated-link" href="/auth/facebook" data-ng-hide="authentication.user" ><i class="icon-facebook-sign"></i>Sign up with Facebook</a>
+      <a class="ui twitter button undecorated-link" href="/auth/twitter" data-ng-hide="authentication.user"><i class="icon-twitter"></i>Sign up with Twitter</a>
+
+      <div class="ui divider" data-ng-hide="authentication.user" >
+        <div class="ui or" >or</div>
+      </div>
+      <div class="ui inputs">
+
+        <div class="ui icon input" ng-class="{ 'has-error': donationForm.fullName.$dirty && donationForm.fullName.$invalid }">
+          <!-- <input type="text" value="" placeholder="Full Name" class="form-control"/> -->
+          <input name="fullName" type="text" data-ng-model="fullName" id="fullName" class="form-control" placeholder="John Mayer" required><i class="icon-user"></i>
+        </div>
+
+        <div class="ui icon input" ng-class="{ 'has-error': donationForm.email.$dirty && donationForm.email.$invalid }">
+          <input name="email" type="email" data-ng-model="email" id="email" class="form-control" placeholder="you@email.com" required><i class="icon-envelope"></i>
+        </div>
+
+        <div class="ui icon input"  ng-class="{ 'has-error': donationForm.organisation.$dirty && donationForm.organisation.$invalid }">
+          <input name="organisation" type="text" data-ng-model="organisation" id="organisation" class="form-control" placeholder="Red Cross" required><i class="icon-lock"></i>
+        </div>
+
+        <div class="ui icon input" ng-class="{ 'has-error': donationForm.amount.$dirty && donationForm.amount.$invalid }">
+          <input name="amount" type="number" data-ng-model="amount" id="amount" class="form-control" placeholder="100" required>
+          <div class="ui icon input">
+          <select data-ng-model="selectedCurrency" data-ng-options="currency.text for currency in currencies" required></select>
+          </div>
+
 <!--header end here-->
