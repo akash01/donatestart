@@ -1,60 +1,86 @@
-<section data-ng-controller="DonationsController">
-  <div class="donation">
-    <div class="donation-main">
-        <div class="donation-top">
-          <img src="/modules/core/img/brand/logo.png" alt="donationstats"/>
-          <h1>Total donation : {{balance}} {{curSym}}</h1>
-          <h3>Submit your donation info using</h3>
-          <form name="donationForm" class="form-horizontal" data-ng-submit="create()" novalidate>
-            <ul>
-                <li><a class="fa" href="/auth/facebook" data-ng-hide="authentication.user"> </a></li>
-                <li><a class="tw" href="/auth/twitter" data-ng-hide="authentication.user"> </a></li>
-                <li><a class="g" ng-href="/auth/google" data-ng-hide="authentication.user"> </a></li>
-            </ul>
-            <h3  data-ng-hide="authentication.user"> or</h3>
+<div class="fullscreen landing parallax" style="background-image:url('/modules/core/img/brand/earthquake.jpg');" data-img-width="2000" data-img-height="1333" data-diff="100">
 
-            <div class="ui icon input" ng-class="{ 'has-error': donationForm.fullName.$dirty && donationForm.fullName.$invalid }">
-              <input name="fullName" type="text" data-ng-model="fullName" id="fullName" class="fullname" placeholder="Raman Tamang" required>
-            </div>
+  <div class="overlay">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7">
+          <!-- /.logo -->
+          <div class="logo wow fadeInDown"> <a href=""><img src="/modules/core/image/brand/logo.png" alt="logo"></a></div>
 
-            <div class="ui icon input" ng-class="{ 'has-error': donationForm.email.$dirty && donationForm.email.$invalid }">
-              <input name="email" type="email" data-ng-model="email" id="email" class="email" placeholder="ramanthaman@gmail.com" required>
-            </div>
-
-              <div class="ui icon input"  ng-class="{ 'has-error': donationForm.organisation.$dirty && donationForm.organisation.$invalid }">
-                <input name="organisation" type="text" data-ng-model="organisation" id="organisation" class="donated" placeholder="Donated to (e.g: Red cross)" required>
-              </div>
-
-              <div class="ui icon input" ng-class="{ 'has-error': donationForm.amount.$dirty && donationForm.amount.$invalid }">
-                <input name="amount" type="number" data-ng-model="amount" id="amount" class="amount" placeholder="100" required>
-              </div>
-
-              <div class="ui icon input">
-                <select class="selectpicker btn-info" data-ng-model="selectedCurrency" data-ng-options="currency.text for currency in currencies" required></select>
-              </div>
-
-            <!-- <input type="text" placeholder="Raman Tamang" required="" class="fullname">
-            <input type="text" placeholder="ramanthaman@gmail.com" required="" class="email">
-            <input type="text" placeholder="Donated to (e.g: Red cross)" required="" class="donated">
-            <input type="text" placeholder="Amount (e.g: $20)" required="" class="amount"> -->
-            <div class="donation-bottom">
-              <div class="donation-check"></div>
-              <input type="submit" value="SUBMIT" />
-            </div>
-                    <div data-ng-show="error" class="text-danger">
-          <strong data-ng-bind="error"></strong>
+          <!-- /.main title -->
+            <h1 class="wow fadeInLeft">
+            Donationstats is created in order to collect statistics of #Nepal #Earthquake donation from an individual all around the globe
+            </h1>
+          <!-- /.header paragraph -->
+          <div class="landing-text wow fadeInUp">
+          </div>
         </div>
 
-        </form>
+        <!-- /.signup form -->
+        <div class="col-md-5">
+
+          <div class="signup-header wow fadeInUp">
+            <h3 class="form-title text-center">Submit your donation using</h3>
+            <div class="social text-center">
+              <ul>
+                <li><a class="wow fadeInUp" href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
+                <li><a class="wow fadeInUp" href="https://www.facebook.com/" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
+                <li><a class="wow fadeInUp" href="https://plus.google.com/" data-wow-delay="0.4s"><i class="fa fa-google-plus"></i></a></li>
+                <li><a class="wow fadeInUp" href="https://instagram.com/" data-wow-delay="0.6s"><i class="fa fa-instagram"></i></a></li>
+              </ul>
+            </div>
+            <form class="form-header" action="" role="form" method="POST" id="#">
+              <div class="form-group">
+                <input class="form-control input-lg" name="MERGE1" id="name" type="text" placeholder="Your name" required>
+              </div>
+              <div class="form-group">
+                <input class="form-control input-lg" name="MERGE0" id="email" type="email" placeholder="Email address" required>
+              </div>
+              <div class="form-group">
+                <input class="form-control input-lg" name="MERGE0" id="donatedto" type="text" placeholder="Donated" required>
+              </div>
+              <div class="form-group">
+                <input class="form-control input-lg" name="MERGE0" id="donatedto" type="text" placeholder="Amount" required>
+              </div>
+              <div class="form-group last">
+                <input type="submit" class="btn btn-warning btn-block btn-lg" value="SUBMIT">
+              </div>
+              <p class="privacy text-center">We will not share your email. Read our <a href="privacy.html">privacy policy</a>.</p>
+            </form>
+          </div>
+
         </div>
+      </div>
     </div>
   </div>
-  <div class="copyright">
-    <p class="footer">Work of >> <a href="http://helpoutnepal.org/"> HelpOutNepal.org </a></p>
+</div>
+
+<div id="countrydonation">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10">
+          <img alt="donationnepal" src="modules/core/img/brand/donation.jpg">
+        </div>
+      </div>
+    </div>
+</div>
+
+
+<!-- /.footer -->
+<footer id="footer">
+  <div class="container">
+    <div class="col-sm-4 col-sm-offset-4">
+      <!-- /.social links -->
+        <div class="social text-center">
+          <ul>
+            <li><a class="wow fadeInUp" href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
+            <li><a class="wow fadeInUp" href="https://www.facebook.com/" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
+            <li><a class="wow fadeInUp" href="https://plus.google.com/" data-wow-delay="0.4s"><i class="fa fa-google-plus"></i></a></li>
+            <li><a class="wow fadeInUp" href="https://instagram.com/" data-wow-delay="0.6s"><i class="fa fa-instagram"></i></a></li>
+          </ul>
+        </div>
+      <div class="text-center wow fadeInUp" style="font-size: 14px;">Copyright 2015 - Work of: <a href="http://www.helpoutnepal.org">HelpOutNepal.org</a></div>
+      <a href="#" class="scrollToTop"><i class="pe-7s-up-arrow pe-va"></i></a>
+    </div>
   </div>
-</section>
-
-
-
-
-<!--header end here-->
+</footer>
