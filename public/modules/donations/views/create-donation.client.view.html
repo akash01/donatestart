@@ -1,11 +1,11 @@
 <div class="fullscreen landing parallax" style="background-image:url('/modules/core/img/brand/earthquake.jpg');" data-img-width="2000" data-img-height="1333" data-diff="100">
 
   <div class="overlay">
-    <div class="container">
+    <div class="container" data-ng-controller="DonationsController">
       <div class="row">
         <div class="col-md-7">
           <!-- /.logo -->
-          <div class="logo wow fadeInDown"> <a href=""><img src="/modules/core/image/brand/logo.png" alt="logo"></a></div>
+          <div class="logo wow fadeInDown"> <a href=""><img src="/modules/core/image/brand/logo.png" alt="logo"></a> <h2 class="pull-right ">Total donation : {{balance}} {{curSym}}</h2></div>
 
           <!-- /.main title -->
             <h1 class="wow fadeInLeft">
@@ -18,35 +18,47 @@
 
         <!-- /.signup form -->
         <div class="col-md-5">
-
           <div class="signup-header wow fadeInUp">
             <h3 class="form-title text-center">Submit your donation using</h3>
             <div class="social text-center">
               <ul>
-                <li><a class="wow fadeInUp" href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
-                <li><a class="wow fadeInUp" href="https://www.facebook.com/" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
-                <li><a class="wow fadeInUp" href="https://plus.google.com/" data-wow-delay="0.4s"><i class="fa fa-google-plus"></i></a></li>
-                <li><a class="wow fadeInUp" href="https://instagram.com/" data-wow-delay="0.6s"><i class="fa fa-instagram"></i></a></li>
+                <li><a class="wow fadeInUp" href="/auth/twitter" data-ng-hide="authentication.user"><i class="fa fa-twitter"></i></a></li>
+                <li><a class="wow fadeInUp" href="/auth/facebook" data-ng-hide="authentication.user" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
+                <li><a class="wow fadeInUp" ng-href="/auth/google" data-ng-hide="authentication.user" data-wow-delay="0.4s"><i class="fa fa-google-plus"></i></a></li>
               </ul>
             </div>
-            <form class="form-header" action="" role="form" method="POST" id="#">
-              <div class="form-group">
-                <input class="form-control input-lg" name="MERGE1" id="name" type="text" placeholder="Your name" required>
+            <form name="donationForm"  class="form-header" role="form" data-ng-submit="create()" novalidate>
+
+              <div class="form-group" ng-class="{ 'has-error': donationForm.fullName.$dirty && donationForm.fullName.$invalid }">
+                <input class="form-control input-lg" name="fullName" id="name" type="text"  data-ng-model="fullName" placeholder="Your name" required>
               </div>
-              <div class="form-group">
-                <input class="form-control input-lg" name="MERGE0" id="email" type="email" placeholder="Email address" required>
+
+              <div class="form-group" ng-class="{ 'has-error': donationForm.email.$dirty && donationForm.email.$invalid }">
+                <input class="form-control input-lg" name="email" id="email" type="email" data-ng-model="email" placeholder="Email address" required>
               </div>
-              <div class="form-group">
-                <input class="form-control input-lg" name="MERGE0" id="donatedto" type="text" placeholder="Donated" required>
+
+              <div class="form-group" ng-class="{ 'has-error': donationForm.organisation.$dirty && donationForm.organisation.$invalid }">
+                <input class="form-control input-lg" name="organisation"  data-ng-model="organisation" id="organisation" type="text" placeholder="Donated to (e.g: Red cross)" required>
               </div>
-              <div class="form-group">
-                <input class="form-control input-lg" name="MERGE0" id="donatedto" type="text" placeholder="Amount" required>
+
+              <div class="form-group" ng-class="{ 'has-error': donationForm.amount.$dirty && donationForm.amount.$invalid }">
+                <input class="form-control input-lg" name="amount" type="number" data-ng-model="amount" id="amount" class="amount" placeholder="100" required>
               </div>
+
+              <div class="form-group">
+                <select class="selectpicker form-control input-lg " name="currency" data-ng-model="selectedCurrency" data-ng-options="currency.text for currency in currencies" required></select>
+              </div>
+
               <div class="form-group last">
                 <input type="submit" class="btn btn-warning btn-block btn-lg" value="SUBMIT">
               </div>
+
               <p class="privacy text-center">We will not share your email. Read our <a href="privacy.html">privacy policy</a>.</p>
             </form>
+
+            <div data-ng-show="error" class="text-danger">
+              <strong data-ng-bind="error"></strong>
+            </div>
           </div>
 
         </div>
@@ -64,7 +76,6 @@
       </div>
     </div>
 </div>
-
 
 <!-- /.footer -->
 <footer id="footer">
