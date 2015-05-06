@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-md-7">
           <!-- /.logo -->
-          <div class="logo wow fadeInDown"> <a href=""><img src="/modules/core/image/brand/logo.png" alt="logo"></a> <h2 class="pull-right ">Total donation : {{balance}} {{curSym}}</h2></div>
+          <div class="logo wow fadeInDown"> <a href=""><img src="/modules/core/image/brand/logo.png" alt="logo"></a> <h2 class="pull-right ">Total donation : <ng-count-up from="0" to="{{balance}}" decimals="1" duration="2" delay="500" options="options"></ng-count-up> {{curSym}} </h2></div>
 
           <!-- /.main title -->
             <h1 class="wow fadeInLeft">
@@ -59,6 +59,7 @@
             <div data-ng-show="error" class="text-danger">
               <strong data-ng-bind="error"></strong>
             </div>
+            <toaster-container toaster-options="{'time-out': 3000, 'close-button':true}"></toaster-container>
           </div>
 
         </div>

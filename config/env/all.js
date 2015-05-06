@@ -15,7 +15,8 @@ module.exports = {
 			css: [
 				'public/lib/bootstrap/dist/css/bootstrap.css',
 				'public/lib/bootstrap/dist/css/bootstrap-theme.css',
-				'public/lib/font-awesome/css/font-awesome.css'
+				'public/lib/font-awesome/css/font-awesome.css',
+				'public/lib/angularjs-toaster/toaster.css'
 			],
 			js: [
 				'public/lib/angular/angular.js',
@@ -27,6 +28,9 @@ module.exports = {
 				'public/lib/angular-ui-router/release/angular-ui-router.js',
 				'public/lib/angular-ui-utils/ui-utils.js',
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
+				'public/lib/ng-countUp.js/ngCountUp.js',
+				'public/lib/countUp.js/countUp.js',
+				'public/lib/angularjs-toaster/toaster.js'
 			]
 		},
 		css: [

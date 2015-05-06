@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('donations').controller('DonationsController', ['$scope', '$stateParams', '$location','Donations','Authentication','$window',
-  function($scope, $stateParams, $location,Donations,Authentication,$window) {
+angular.module('donations').controller('DonationsController', ['$scope', '$stateParams', '$location','Donations','Authentication','$window','toaster',
+  function($scope, $stateParams, $location,Donations,Authentication,$window,toaster) {
     $scope.authentication = Authentication;
 
     $window.JR.apikey('jr-b5e6b58e33efd19cd84728b19d837c62');
@@ -57,13 +57,24 @@ angular.module('donations').controller('DonationsController', ['$scope', '$state
             $scope.amount = '';
             //$scope.currency = '';
         }, function(errorResponse) {
-            $scope.error = errorResponse.data.message;
+            console.log('msg',errorResponse.data,toaster);
+            toaster.pop('error', '', errorResponse.data.message);
+            //$scope.error = errorResponse.data.message;
         });
     };
 
     $scope.find = function() {
         $scope.donations = Donations.query();
         //$scope.donations = 'this is test one.';
+    };
+
+    $scope.options = {
+        useEasing : true,
+        useGrouping : true,
+        separator : ',',
+        decimal : '.',
+        prefix : '',
+        suffix : ''
     };
 
     $scope.currencies = [
