@@ -158,13 +158,13 @@ a:hover {
 }
 .logo {
 	margin: 100px 0 40px 0;
+	text-align: center;
 }
 .logo img{
-	width: 150px;
-	height: 37px
+
 }
 .landing h1{
-	font-size: 56px;
+	font-size: 2.2em;
 	font-weight: 300;
 	color: #fff;
 	margin: 30px 0 30px 0;
@@ -895,7 +895,7 @@ and (orientation : landscape) {
 		margin: 30px 0 30px 0;
 	}
 	.landing h1{
-		font-size: 50px;
+		font-size: 40px;
 		margin: 10px 0 25px 0;
 	}
 	.landing-text {
@@ -921,7 +921,7 @@ and (orientation : landscape) {
 		margin: 15px 0 15px 0;
 	}
 	.landing h1{
-		font-size: 40px;
+		font-size: 20px;
 		margin: 20px 0 10px 0;
 	}
 	.landing-text p {
@@ -1033,3 +1033,90 @@ and (orientation : landscape) {
 		padding: 20px 10px;
 	}
 }
+
+.error-notice {
+  margin: 5px 5px; /* Making sure to keep some distance from all side */
+}
+
+.oaerror {
+  width: 90%; /* Configure it fit in your design  */
+  margin: 0 auto; /* Centering Stuff */
+  background-color: #FFFFFF; /* Default background */
+  padding: 20px;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  border-radius: 3px;
+  margin: 0 auto;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+}
+
+.danger {
+  border-left-color: #d9534f; /* Left side border color */
+  background-color: rgba(217, 83, 79, 0.1); /* Same color as the left border with reduced alpha to 0.1 */
+}
+
+.danger strong {
+  color:  #d9534f;
+}
+
+.warning {
+  border-left-color: #f0ad4e;
+  background-color: rgba(240, 173, 78, 0.1);
+}
+
+.warning strong {
+  color: #f0ad4e;
+}
+
+.info {
+  border-left-color: #5bc0de;
+  background-color: rgba(91, 192, 222, 0.1);
+}
+
+.info strong {
+  color: #5bc0de;
+}
+
+.success {
+  border-left-color: #2b542c;
+  background-color: rgba(43, 84, 44, 0.1);
+}
+
+.success strong {
+  color: #2b542c;
+}
+h3.donationsource  {
+  font-size: 2em;
+  line-height: 1.4em;
+  color: red;
+  text-align: center;
+}
+
+h4.or  {
+  font-size: 1.8em;
+  line-height: 1.4em;
+  color: #fff;
+  text-align: center;
+}
+
+h1.dinfo  {
+  font-size: 2.8em;
+  color: #fff;
+  text-align: center;
+}
+
+.fa-2x {
+  font-size: 1.4em;
+}
+
+/* Share CSS*/
+ul.share-buttons{
+  list-style: none;
+  padding: 0;
+}
+
+ul.share-buttons li{
+  display: inline;
+}
+
