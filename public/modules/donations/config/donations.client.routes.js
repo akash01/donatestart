@@ -8,6 +8,10 @@ angular.module('donations').config(['$stateProvider',
     state('listDonations', {
         url: '/donations',
         templateUrl: 'modules/donations/views/list-donations.client.view.html'
+    }).
+    state('privacy', {
+        url: '/privacy',
+        templateUrl: 'modules/donations/views/privacy.client.view.html'
     });
     // state('createDonation', {
     //     url: '/donation/create',

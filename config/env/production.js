@@ -7,6 +7,8 @@ module.exports = {
 			css: [
 				'public/lib/bootstrap/dist/css/bootstrap.min.css',
 				'public/lib/bootstrap/dist/css/bootstrap-theme.min.css',
+				'public/lib/font-awesome/css/font-awesome.min.css',
+				'public/lib/angularjs-toaster/toaster.min.css'
 			],
 			js: [
 				'public/lib/angular/angular.min.js',
@@ -18,7 +20,9 @@ module.exports = {
 				'public/lib/angular-ui-router/release/angular-ui-router.min.js',
 				'public/lib/angular-ui-utils/ui-utils.min.js',
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.min.js',
-				'public/lib/jsonrates/jsonrates.min.js'
+				'public/lib/ng-countUp.js/ngCountUp.min.js',
+				'public/lib/countUp.js/countUp.min.js',
+				'public/lib/angularjs-toaster/toaster.min.js'
 			]
 		},
 		css: 'public/dist/application.min.css',
