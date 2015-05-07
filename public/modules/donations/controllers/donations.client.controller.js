@@ -5,7 +5,7 @@ angular.module('donations').controller('DonationsController', ['$scope', '$state
     $scope.authentication = Authentication;
 
     $window.JR.apikey('jr-b5e6b58e33efd19cd84728b19d837c62');
-    console.log('$scope.authentication',$scope.authentication);
+    //console.log('$scope.authentication',$scope.authentication);
     Donations.query(function(data){
         if (data[0]) {
             $scope.curSym = data[0]._id;
@@ -25,17 +25,8 @@ angular.module('donations').controller('DonationsController', ['$scope', '$state
         } else {
             $scope.profileImage =  '//graph.facebook.com/'+$scope.authentication.user.providerData.id+'/picture';
         }
-
-
     }
-    // if ($scope.authentication.user && $scope.authentication.user.provider === 'twitter') {
-    //     $scope.fullName = $scope.authentication.user.displayName;
-    //     $scope.email = $scope.authentication.user.email;
-    // }
-    // if ($scope.authentication.user && $scope.authentication.user.provider === 'google') {
-    //     $scope.fullName = $scope.authentication.user.displayName;
-    //     $scope.email = $scope.authentication.user.email;
-    // }
+
     $scope.create = function() {
         var donation = new Donations({
             fullName: this.fullName,
