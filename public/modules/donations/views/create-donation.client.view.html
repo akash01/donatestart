@@ -5,7 +5,7 @@
       <div class="row">
       <h1 class="dinfo">Donation received approx: <ng-count-up from="0" to="{{balance}}" decimals="1" duration="2" delay="500" options="options"></ng-count-up> {{curSym}} </h1>
         <div class="col-md-7">
-          
+
           <!-- /.logo -->
 
           <div class="logo wow fadeInDown">
@@ -30,27 +30,32 @@
                 <div class="cardheader">
 
                 </div>
-                <div class="avatar">
-                    <img alt="" src="/modules/core/img/brand/user.png">
+                <div class="avatar" data-ng-show="authentication.user">
+                    <!-- <img alt="" src="/modules/core/img/brand/user.png"> -->
+                    <img src="//graph.facebook.com/{{authentication.user.providerData.id}}/picture">
+
                 </div>
                 <div class="info">
-                    <div class="title">
-                        <p class="profile">Thaman Chand</p>
-                        <p class="profile">Logout</p>
+                    <div class="title" data-ng-show="authentication.user">
+                        <p class="profile">{{fullName}}</p>
+                        <p><a class="profile small" href="/auth/signout">Logout</a></p>
                     </div>
                 </div>
             </div>
 
             <div class="social text-center">
-              <h3 class="form-title text-center">Please provide actual info</h3>
+              <h3 class="form-title text-center" data-ng-show="authentication.user">Please provide actual info</h3>
 
-              <h4 class="or" data-ng-hide="authentication.user">OR</h4>
+
 
               <div class="form-group">
+                <ul>
                   <li><a class="wow fadeInUp" href="/auth/twitter" data-ng-hide="authentication.user"><i class="fa fa-twitter fa-2x"></i></a></li>
                   <li><a class="wow fadeInUp" href="/auth/facebook" data-ng-hide="authentication.user" data-wow-delay="0.2s"><i class="fa fa-facebook fa-2x"></i></a></li>
                 </ul>
+                <h4 class="or" data-ng-hide="authentication.user">OR</h4>
               </div>
+
               <form name="donationForm"  class="form-header" role="form" data-ng-submit="create()" novalidate>
 
                 <div class="form-group" ng-class="{ 'has-error': donationForm.fullName.$dirty && donationForm.fullName.$invalid }">
