@@ -1365,9 +1365,7 @@ ul.share-buttons li{
 }
 
 .btn{ border-radius: 50%; width:32px; height:32px; line-height:18px;  }
-.social.text-center {
-  margin-top: -55px;
-}
+
 form.form-header.ng-pristine.ng-invalid.ng-invalid-required {
   margin-top: -35px;
 }

@@ -19,6 +19,14 @@ angular.module('donations').controller('DonationsController', ['$scope', '$state
     if ($scope.authentication.user) {
         $scope.fullName = $scope.authentication.user.displayName;
         $scope.email = $scope.authentication.user.email;
+
+        if ($scope.authentication.user.provider === 'twitter') {
+            $scope.profileImage =  $scope.authentication.user.providerData.profile_image_url;
+        } else {
+            $scope.profileImage =  '//graph.facebook.com/'+$scope.authentication.user.providerData.id+'/picture';
+        }
+
+
     }
     // if ($scope.authentication.user && $scope.authentication.user.provider === 'twitter') {
     //     $scope.fullName = $scope.authentication.user.displayName;
